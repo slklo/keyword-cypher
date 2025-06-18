@@ -69,3 +69,9 @@ Input text: hello world
 
 Keyword: keyword
 Result: jaddn vnsdj
+
+```
+
+Wiki link for keyword cypher - https://en.wikipedia.org/wiki/Substitution_cipher#Simple_substitution
+
+Feel free to reach out for questions or suggestions!
