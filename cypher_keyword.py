@@ -51,36 +51,36 @@ def main():
 
     while True: 
         while True:
-            mode = prompt('Выберите режим (1 - Шифровать, 2 - Дешифровать): ').strip()
+            mode = prompt('Choose mode (1 - encode, 2 - decode): ').strip()
             if mode in ('1', '2'):
                 break
             else:
-                print("Некорректный ввод. Пожалуйста, введите '1' или '2'.\n")
+                print("Incorrect input. Please, input '1' or '2'.\n")
 
         while True:
-            lang_choice = prompt('\nВыберите алфабит (1 - eng, 2 - ru): ').strip()
+            lang_choice = prompt('\nChoose alphabet (1 - eng, 2 - ru): ').strip()
             if lang_choice in ('1', '2'):
                 break
             else:
-                print("Некорректный ввод. Пожалуйста, введите '1' или '2'.\n")
+                print("Incorrect input. Please, input '1' or '2'.\n")
 
         while True:
-            keyword = prompt('\nВведите ключевое слово: ').strip()
+            keyword = prompt('\nInput keyword: ').strip()
             
             if lang_choice == '1' and any(ch in rus or ch.isdigit() for ch in keyword) :
-                print(f'Некорректный ввод. Введите ключ на английском\n')
+                print(f'Incorrect input. Enter the key in English\n')
             elif lang_choice == '2' and any(ch in eng or ch.isdigit() for ch in keyword):
-                print(f'Некорректный ввод. Введите ключ на русском\n')
+                print(f'Incorrect input. Enter the key in Russian\n')
             else: 
                 break
 
         while True:  
-            text = prompt("\nВведите текст: ").strip()
+            text = prompt("\nInput text: ").strip()
 
             if lang_choice == '1' and any(ch in rus or ch.isdigit() for ch in text):
-                print(f'Некорректный ввод. Введите текст на английском\n')
+                print(f'Incorrect input. Enter the key in English\n')
             elif lang_choice == '2' and any(ch in eng or ch.isdigit() for ch in text):
-                print(f'Некорректный ввод. Введите текст на русском\n')
+                print(f'Incorrect input. Enter the key in Russian\n')
             else: 
                 break
             
@@ -89,19 +89,19 @@ def main():
         cipher = KeywordCipher(keyword, alphabet)
         result = cipher.encode(text) if mode == '1' else cipher.decode(text)
 
-        print("\n\nКлюч:", keyword)
-        print("Результат:", result)
+        print("\n\nKeyword:", keyword)
+        print("Result:", result)
 
 
         while True:
-            continue_choice = prompt("\nХотите выполнить еще одну операцию? (да/нет): ").strip().lower()
-            if continue_choice == 'нет':
-                print("\nСпасибо за использование! До свидания.")
+            continue_choice = prompt("\nDo you want to perform another operation? (yes/no): ").strip().lower()
+            if continue_choice == 'no':
+                print("\nThanks for using it! Goodbye.")
                 return 
-            elif continue_choice == 'да':
+            elif continue_choice == 'yes':
                 break 
             else:
-                print("\nНекорректный ввод. Пожалуйста, введите 'да' или 'нет'.\n")
+                print("\nIncorrect input. Please enter 'yes' or 'no'.\n")
 
 
 if __name__ == '__main__':
